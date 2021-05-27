@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flash lamp</title>
+</head>
+<body>
+<script>
+    class Battery {
+        constructor(energy) {
+            this.energy = energy;
+        }
+
+        setEnergy(energy) {
+            this.energy = energy;
+        }
+
+        getEnergy() {
+            return this.energy;
+        }
+
+        decreaseEnergy(number) {
+            if (this.energy > 0) {
+                this.energy--;
+            }
+        }
+    }
+
+    class Flashlamp {
+        constructor(battery, status) {
+            this.battery = battery;
+            this.status = status;
+        }
+
+        setBattery(battery) {
+            this.battery = battery;
+        }
+
+        getBatteryInfo() {
+            return this.battery;
+        }
+
+        light() {
+            if (this.status == true && this.battery.energy > 0) {
+                alert("Lighting");
+                this.battery.decreaseEnergy();
+            } else {
+                alert("Not lighting");
+            }
+        }
+
+        turnOn() {
+            if (this.status == false) {
+                this.status = true;
+            } else {
+                alert('Please turn off the light');
+            }
+
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+    }
+
+    let pincontho = new Battery();
+    pincontho.setEnergy(100);
+    console.log(pincontho.getEnergy());
+    let denrangdong = new Flashlamp();
+    denrangdong.setBattery(pincontho);
+    console.log(denrangdong.getBatteryInfo());
+
+
+
+</script>
+
+</body>
+</html>
